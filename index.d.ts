@@ -34,7 +34,9 @@ declare module 'react-table' {
 
   export interface TableInstance<
     D extends Record<string, unknown> = Record<string, unknown>,
-  > extends UseColumnOrderInstanceProps<D>,
+  > extends Omit<TableOptions<D>, 'columns' | 'pageCount'>,
+      UseTableInstanceProps<D>,
+      UseColumnOrderInstanceProps<D>,
       UseExpandedInstanceProps<D>,
       UseFiltersInstanceProps<D>,
       UseGlobalFiltersInstanceProps<D>,
