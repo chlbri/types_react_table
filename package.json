@@ -1,0 +1,11 @@
+{
+  "name": "types_react_table",
+  "version": "0.0.1",
+  "description": "My (chlbri) Typescript definitions for react Table",
+  "main": "index.js",
+  "author": "chlbri <bri_lvi@icloud.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^17.0.16"
+  }
+}
