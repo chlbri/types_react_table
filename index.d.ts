@@ -18,7 +18,8 @@ import {
 declare module 'react-table' {
   export interface TableOptions<
     D extends Record<string, unknown>,
-  > extends UseExpandedOptions<D>,
+  > extends UseTableOptions<D>,
+      UseExpandedOptions<D>,
       UseFiltersOptions<D>,
       UseGlobalFiltersOptions<D>,
       UseGroupByOptions<D>,
@@ -57,11 +58,14 @@ declare module 'react-table' {
       UseResizeColumnsState<D>,
       UseRowSelectState<D>,
       UseRowStateState<D>,
-      UseSortByState<D> {}
+      UseSortByState<D> {
+    hiddenColumns?: Array<IdType<D>> | undefined;
+  }
 
   export interface Hooks<
     D extends Record<string, unknown> = Record<string, unknown>,
-  > extends UseExpandedHooks<D>,
+  > extends UseTableHooks<D>,
+      UseExpandedHooks<D>,
       UseGroupByHooks<D>,
       UseRowSelectHooks<D>,
       UseSortByHooks<D> {}
@@ -69,12 +73,14 @@ declare module 'react-table' {
   export interface Cell<
     D extends Record<string, unknown> = Record<string, unknown>,
     V = any,
-  > extends UseGroupByCellProps<D>,
+  > extends UseTableCellProps<D, V>,
+      UseGroupByCellProps<D>,
       UseRowStateCellProps<D> {}
 
   export interface ColumnInterface<
     D extends Record<string, unknown> = Record<string, unknown>,
-  > extends UseFiltersColumnOptions<D>,
+  > extends UseTableColumnOptions<D>,
+      UseFiltersColumnOptions<D>,
       UseGlobalFiltersColumnOptions<D>,
       UseGroupByColumnOptions<D>,
       UseResizeColumnsColumnOptions<D>,
@@ -133,7 +139,10 @@ declare module 'react-table' {
 
   export interface ColumnInstance<
     D extends Record<string, unknown> = Record<string, unknown>,
-  > extends UseFiltersColumnProps<D>,
+  > extends mit<ColumnInterface<D>, 'id'>,
+      ColumnInterfaceBasedOnValue<D>,
+      UseTableColumnProps<D>,
+      UseFiltersColumnProps<D>,
       UseGroupByColumnProps<D>,
       UseResizeColumnsColumnProps<D>,
       UseSortByColumnProps<D> {}
@@ -144,7 +153,8 @@ declare module 'react-table' {
 
   export interface Row<
     D extends Record<string, unknown> = Record<string, unknown>,
-  > extends UseExpandedRowProps<D>,
+  > extends UseTableRowProps<D>,
+      UseExpandedRowProps<D>,
       UseGroupByRowProps<D>,
       UseRowSelectRowProps<D>,
       UseRowStateRowProps<D> {}
