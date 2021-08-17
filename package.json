@@ -1,11 +1,18 @@
 {
   "name": "types_react_table",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "My (chlbri) Typescript definitions for react Table",
   "main": "index.js",
   "author": "chlbri <bri_lvi@icloud.com>",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^17.0.16"
+  },
+  "scripts": {
+    "publish": "yarn publish",
+    "yarn": "yarn install",
+    "cache-clean": "yarn cache clean",
+    "rm": "rm -rf node_modules yarn.lock",
+    "rinit": "yarn run rm && yarn run cache-clean && yarn install"
   }
 }
