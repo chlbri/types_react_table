@@ -7,6 +7,7 @@
   "author": "chlbri <bri_lvi@icloud.com>",
   "license": "MIT",
   "peerDependencies": {
+    "react":"^17.0.2",
     "react-table": "^7.7.0"
   },
   "devDependencies": {
